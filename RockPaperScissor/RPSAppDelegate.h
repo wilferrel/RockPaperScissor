@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RPSAppDelegate : UIResponder <UIApplicationDelegate>
+#define INTERACTIVEMODE @"interactivemode"
+#define USERSELECTION @"userselecion"
 
+@interface RPSAppDelegate : UIResponder <UIApplicationDelegate>{
+UINavigationController *navigationController;
+}
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSMutableArray *gameResultsArray;
 
 @end

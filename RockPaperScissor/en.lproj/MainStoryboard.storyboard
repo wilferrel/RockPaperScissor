@@ -1,23 +1,167 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="itt-qA-DHT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--Result View Controller - RPSResultViewController-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="RPSViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RPSResultViewController" title="RPSResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2" customClass="RPSResultViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfs-Vo-u2O">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="3Ju-lI-KZe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0078431377190000002" green="0.75686281919999998" blue="0.90980398650000005" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-n7-FlM">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="187" id="k1F-aK-jxV"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" type="user" id="uvd-iT-A4L"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="zRl-qP-64D"/>
+                                    <outlet property="delegate" destination="2" id="EPH-xL-vGm"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahj-fT-RJP">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="151" id="b0Z-e0-gW1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Play Again" backgroundImage="Buttons.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAgain:" destination="2" eventType="touchUpInside" id="GOB-eF-Sa9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="b4c-n7-FlM" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="9zL-s6-9yO"/>
+                            <constraint firstItem="b4c-n7-FlM" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="A2S-rR-Znc"/>
+                            <constraint firstItem="b4c-n7-FlM" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Jmi-Ak-cAa"/>
+                            <constraint firstItem="ahj-fT-RJP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="86" id="SJZ-da-RP3"/>
+                            <constraint firstItem="ahj-fT-RJP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="86" id="bvH-3A-dcF"/>
+                            <constraint firstItem="dfs-Vo-u2O" firstAttribute="centerX" secondItem="ahj-fT-RJP" secondAttribute="centerX" type="default" id="dkA-qJ-mA4"/>
+                            <constraint firstItem="b4c-n7-FlM" firstAttribute="top" secondItem="dfs-Vo-u2O" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gmJ-kH-tgA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playAgainButton" destination="ahj-fT-RJP" id="B81-r6-c7G"/>
+                        <outlet property="recentResultsTable" destination="b4c-n7-FlM" id="87m-Yd-213"/>
+                        <outlet property="resultsLabel" destination="dfs-Vo-u2O" id="O1d-e6-18I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="491" y="-68"/>
+        </scene>
+        <!--Menu View Controller - Main Menu-->
+        <scene sceneID="cIV-o2-bG3">
+            <objects>
+                <viewController storyboardIdentifier="RPSMenuViewController" title="Main Menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lzR-hX-jo7" customClass="RPSMenuViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PGe-G1-WP5">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VFP-tV-G1b"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Interactive:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01W-e5-brN">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="0nc-Ri-BrX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Iz-KA-aef">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="133" id="lAP-rW-iFI"/>
+                                    <constraint firstAttribute="width" constant="153" id="lyd-3y-ZFz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <state key="normal" title="Play" backgroundImage="Buttons.png">
+                                    <color key="titleColor" red="0.85882359743118286" green="0.92549026012420654" blue="0.21176472306251526" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playTouched:" destination="lzR-hX-jo7" eventType="touchUpInside" id="uC4-77-rmJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="VFP-tV-G1b" firstAttribute="leading" secondItem="01W-e5-brN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="B17-2d-TiX"/>
+                            <constraint firstItem="3Iz-KA-aef" firstAttribute="top" secondItem="PGe-G1-WP5" secondAttribute="top" constant="238" id="GcS-q7-0HD"/>
+                            <constraint firstItem="01W-e5-brN" firstAttribute="centerY" secondItem="VFP-tV-G1b" secondAttribute="centerY" type="default" id="OR9-7v-lYv"/>
+                            <constraint firstItem="VFP-tV-G1b" firstAttribute="top" secondItem="PGe-G1-WP5" secondAttribute="top" constant="55" id="b0b-LD-qvq"/>
+                            <constraint firstItem="01W-e5-brN" firstAttribute="leading" secondItem="PGe-G1-WP5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="hoC-WO-Tms"/>
+                            <constraint firstItem="3Iz-KA-aef" firstAttribute="leading" secondItem="PGe-G1-WP5" secondAttribute="leading" constant="77" id="jE5-V3-sGU"/>
+                            <constraint firstItem="VFP-tV-G1b" firstAttribute="centerX" secondItem="PGe-G1-WP5" secondAttribute="centerX" type="default" id="rlh-nJ-i9z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="interactiveSwitch" destination="VFP-tV-G1b" id="VNB-TT-B5G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xop-wL-fpq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="-68"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4hr-E8-rcI">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="itt-qA-DHT" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oei-Wz-1eg">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DNu-8n-3k7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-260" y="-68"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Buttons.png" width="150" height="150"/>
+    </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RPSMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RPSMenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissActionSheet:"/>
+                <relationship kind="action" name="playTouched:"/>
+                <relationship kind="outlet" name="interactiveSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="RPSResultViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RPSResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissActionSheet:"/>
+                <relationship kind="action" name="playAgain:"/>
+                <relationship kind="outlet" name="playAgainButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="recentResultsTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="resultsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

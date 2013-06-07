@@ -7,13 +7,34 @@
 //
 
 #import "RPSAppDelegate.h"
+#import "RPSMenuViewController.h"
+
 
 @implementation RPSAppDelegate
+@synthesize gameResultsArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+	
+	//
+	[(UINavigationController*)self.window.rootViewController  setNavigationBarHidden:YES animated:NO];
+	
+	
+	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+	RPSMenuViewController *mainMenu = (RPSMenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"RPSMenuViewController"];
+	
+	
+	gameResultsArray=[[NSMutableArray alloc]init];
+	
+	
+	[(UINavigationController*)self.window.rootViewController pushViewController:mainMenu animated:YES];
     return YES;
+}
+-(void)applicationDefaults{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:FALSE forKey:INTERACTIVEMODE];
+	[defaults setValue:@"" forKey:USERSELECTION];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
